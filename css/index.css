@@ -1,0 +1,104 @@
+/* Fuente y fondo general */
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #4a90e2, #50c9c3);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+/* Contenedor principal */
+.login-container {
+    background-color: #ffffffee;
+    backdrop-filter: blur(5px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    width: 350px;
+    text-align: center;
+}
+
+/* Título */
+.login-container h2 {
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Formulario */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Etiquetas */
+.login-form label {
+    text-align: left;
+    font-weight: 600;
+    color: #444;
+}
+
+/* Inputs */
+.login-form input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px #4a90e2;
+}
+
+/* Botón */
+.login-form button {
+    background-color: #4a90e2;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.login-form button:hover {
+    background-color: #357ABD;
+}
+
+.login-form button:active {
+    transform: scale(0.98);
+}
+
+/* Enlaces para cambiar de formulario */
+.cambio-form {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.cambio-form a {
+    color: #4a90e2;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cambio-form a:hover {
+    text-decoration: underline;
+}
+
+/* Mensaje de error */
+.mensaje-error {
+    margin-top: 15px;
+    color: red;
+    font-weight: bold;
+}
+
+/* Ocultar formulario */
+.oculto {
+    display: none;
+}
