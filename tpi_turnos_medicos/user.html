@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Panel Usuario</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<h1>Bienvenido al Portal del Paciente</h1>
+<button onclick="cerrarSesion()">Cerrar Sesión</button>
+
+<div id="turnos">
+    <p>Reservar turnos disponibles...</p>
+</div>
+
+<script>
+    const user = JSON.parse(localStorage.getItem("usuario"));
+    if (!user || user.role !== "USUARIO") {
+    alert("Acceso no autorizado");
+    window.location.href = "index.html";
+}
+
+function cerrarSesion() {
+    localStorage.removeItem("usuario");
+    window.location.href = "index.html";
+}
+</script>
+</body>
+</html>
