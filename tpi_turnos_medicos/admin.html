@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel Admin-Sistema de Turnos Medicos</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container">
+        <h1 class="logo">Clínica Utn</h1>
+        <nav class="menu">
+          <ul>
+            <li><a href="#medicos">Medicos</a></li>
+            <li><a href="#turnos">Turnos</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+          </ul>
+        </nav>
+        <button id="btnLogout" class="btn-logout">Cerrar sesión</button>
+      </div>
+    </header>
+
+    <!-- Maain -->
+    <main class="main-container">
+      <!-- Medicos -->
+      <section id="medicos" class="section">
+        <h2>Gestión de Medicos</h2>
+
+        <form id="formMedico" class="form-medico">
+          <div class="form-row">
+            <label for="nombreMedico">Nombre:</label>
+            <input
+              type="text"
+              id="nombreMedico"
+              placeholder="Nombre del médico"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="especialidadMedico">Especialidad:</label>
+            <input
+              type="text"
+              id="especialidadMedico"
+              placeholder="Especialidad"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="diasDisponibles">Dias disponibles:</label>
+            <input
+              type="text"
+              id="diasDisponibles"
+              placeholder="Ej: Lunes, Martes"
+            />
+          </div>
+
+          <button type="submit" class="btn">Agregar Médico</button>
+        </form>
+
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Especialidad</th>
+              <th>Dias disponibles</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaMedicos"></tbody>
+        </table>
+      </section>
+
+      <hr />
+
+      <!-- Turnos -->
+      <section id="turnos" class="section">
+        <h2>Gestión de Turnos</h2>
+
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>Paciente</th>
+              <th>Médico</th>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaTurnos"></tbody>
+        </table>
+      </section>
+
+      <hr />
+
+      <!-- Dashboard -->
+      <section id="dashboard" class="section">
+        <h2>Dashboard</h2>
+        <canvas id="graficoTurnos" width="400" height="200"></canvas>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>
