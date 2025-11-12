@@ -24,7 +24,7 @@ linkLogin.addEventListener("click", (e) => {
     mensaje.textContent = "";
 });
 
-// Validar registro (ejemplo básico)
+// Validar registro (ejemplo basico)
 formRegistro.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -37,7 +37,7 @@ formRegistro.addEventListener("submit", (e) => {
         mensaje.style.color = "green";
         mensaje.textContent = "Registro exitoso. Ahora puedes iniciar sesión.";
         setTimeout(() => {
-            linkLogin.click(); // Vuelve al login automáticamente
+            linkLogin.click(); // Vuelve al login automaticamente
             mensaje.style.color = "red";
         }, 1500);
     }
