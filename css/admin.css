@@ -200,11 +200,12 @@ body {
   text-align: center;
 }
 
-canvas {
-  max-width: 600px;
-  width: 100%;
-  margin: 0 auto;
+#graficoTurnos {
+    width: 100%;
+    max-width: 600px;
+    height: 300px !important;
 }
+
 
 /*  Responsive  */
 @media (max-width: 768px) {
