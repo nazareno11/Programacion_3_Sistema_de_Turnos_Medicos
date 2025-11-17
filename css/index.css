@@ -21,7 +21,7 @@ body {
 }
 
 /* Título */
-.login-container h2 {
+.login-container h2, #nombreClinica {
     color: #333;
     margin-bottom: 25px;
 }
