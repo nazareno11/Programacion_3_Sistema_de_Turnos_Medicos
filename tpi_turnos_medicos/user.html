@@ -1,29 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <title>Panel Usuario</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel del Paciente</title>
+    <link rel="stylesheet" href="../css/user.css">
 </head>
 <body>
-<h1>Bienvenido al Portal del Paciente</h1>
-<button onclick="cerrarSesion()">Cerrar Sesión</button>
 
-<div id="turnos">
-    <p>Reservar turnos disponibles...</p>
-</div>
+<header class="header">
+    <h1>Portal del Paciente</h1>
+    <button class="btn-logout" onclick="cerrarSesion()">Cerrar Sesión</button>
+</header>
 
-<script>
-    const user = JSON.parse(localStorage.getItem("usuario"));
-    if (!user || user.role !== "USUARIO") {
-    alert("Acceso no autorizado");
-    window.location.href = "index.html";
-}
+<main class="container">
 
-function cerrarSesion() {
-    localStorage.removeItem("usuario");
-    window.location.href = "index.html";
-}
-</script>
+    <!-- PANEL PRINCIPAL -->
+    <section id="menuPrincipal" class="card">
+        <h2>Opciones</h2>
+        <button onclick="mostrar('perfil')">Ver Perfil</button>
+        <button onclick="mostrar('turnosDisponibles')">Ver Turnos Disponibles</button>
+        <button onclick="mostrar('solicitarTurno')">Solicitar Turno</button>
+    </section>
+
+    <!-- PERFIL -->
+    <section id="perfil" class="card seccion-oculta">
+        <h2>Mi Perfil</h2>
+        <p>Aquí irán los datos del usuario (nombre, mail, DNI, etc).</p>
+        <button onclick="volverMenu()">Volver</button>
+    </section>
+
+    <!-- TURNOS DISPONIBLES -->
+    <section id="turnosDisponibles" class="card seccion-oculta">
+        <h2>Turnos Disponibles</h2>
+        <p>Aquí podés listar los turnos que ofrece la clínica.</p>
+        <button onclick="volverMenu()">Volver</button>
+    </section>
+
+    <!-- SOLICITAR TURNO -->
+    <section id="solicitarTurno" class="card seccion-oculta">
+        <h2>Solicitar Turno</h2>
+        <p>Formulario para seleccionar médico, día y horario.</p>
+        <button onclick="volverMenu()">Volver</button>
+    </section>
+
+</main>
+
+
+<script src="../js/user.js"></script>
+
 </body>
 </html>
