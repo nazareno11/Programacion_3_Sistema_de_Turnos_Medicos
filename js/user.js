@@ -376,7 +376,7 @@ async function renderSolicitarTurnoForm() {
 function cerrarSesion() {
   localStorage.removeItem("usuario");
   localStorage.removeItem("usuarioLogueado");
-  window.location.href = "../index.html";
+  window.location.href = "../tpi_turnos_medicos/index.html";
 }
 
 // ======================= INICIALIZACIÓN =======================
