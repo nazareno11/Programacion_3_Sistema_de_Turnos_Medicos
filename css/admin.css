@@ -9,6 +9,8 @@ body {
 
 /*  Navbar  */
 .navbar .container {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: space-between; /* separa el menú de Cerrar Sesión */
@@ -35,7 +37,7 @@ body {
 }
 
 .btn-logout {
-  color: #333;
+  color: #4a90e2;
   background-color: white;
   border: none;
   border-radius: 10px;
