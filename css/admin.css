@@ -196,16 +196,17 @@ body {
 }
 
 /*  Dashboard  */
-#dashboard {
-  text-align: center;
+.grafico-container {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  margin: auto;
 }
 
 #graficoTurnos {
-    width: 100%;
-    max-width: 600px;
-    height: 300px !important;
+  width: 100% !important;
+  height: 100% !important;
 }
-
 
 /*  Responsive  */
 @media (max-width: 768px) {
