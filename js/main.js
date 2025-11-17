@@ -1,4 +1,4 @@
-// Selecciono los elementos
+// Selección de elementos
 const formLogin = document.getElementById("formLogin");
 const formRegistro = document.getElementById("formRegistro");
 const linkRegistro = document.getElementById("linkRegistro");
@@ -6,9 +6,11 @@ const linkLogin = document.getElementById("linkLogin");
 const tituloForm = document.getElementById("titulo-form");
 const mensaje = document.getElementById("mensaje");
 
-const API_USERS = "" // poner url de mockapi de los usuarios
+// URL MockAPI usuarios
+const API_USERS = "https://6911d53152a60f10c81f73ab.mockapi.io/usuarios";
 
-// Cambiar de Login a Registro
+// ---------------------- CAMBIO DE FORMULARIO ----------------------
+
 linkRegistro.addEventListener("click", (e) => {
     e.preventDefault();
     formLogin.classList.add("oculto");
@@ -17,7 +19,6 @@ linkRegistro.addEventListener("click", (e) => {
     mensaje.textContent = "";
 });
 
-// Cambiar de Registro a Login
 linkLogin.addEventListener("click", (e) => {
     e.preventDefault();
     formRegistro.classList.add("oculto");
@@ -26,14 +27,13 @@ linkLogin.addEventListener("click", (e) => {
     mensaje.textContent = "";
 });
 
-
-//registro de usuario
+// ---------------------- REGISTRO ----------------------
 
 formRegistro.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const nombre = document.getElementById("nombre").value;
-    const email = document.getElementById("emailRegistro").value;
+    const mail = document.getElementById("emailRegistro").value;
     const pass1 = document.getElementById("passwordRegistro").value;
     const pass2 = document.getElementById("confirmarPassword").value;
 
@@ -42,13 +42,12 @@ formRegistro.addEventListener("submit", async (e) => {
         return;
     }
 
-    // Crear usuario en MockAPI
     try {
         const nuevoUsuario = {
             nombre,
-            email,
+            mail,
             password: pass1,
-            role: "USUARIO" 
+            rol: "usuario" // → igual al de la API
         };
 
         await fetch(API_USERS, {
@@ -71,20 +70,20 @@ formRegistro.addEventListener("submit", async (e) => {
     }
 });
 
-//login de usuario
+// ---------------------- LOGIN ----------------------
 
 formLogin.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const emailIngresado = document.getElementById("email").value;
+    const passwordIngresado = document.getElementById("password").value;
 
     try {
         const res = await fetch(API_USERS);
         const usuarios = await res.json();
 
         const user = usuarios.find(
-            (u) => u.email === email && u.password === password
+            (u) => u.mail === emailIngresado && u.password === passwordIngresado
         );
 
         if (!user) {
@@ -92,14 +91,14 @@ formLogin.addEventListener("submit", async (e) => {
             return;
         }
 
-        
-        localStorage.setItem("usuario", JSON.stringify(user)); //guardamos la sesion
+        // Guardar sesión
+        localStorage.setItem("usuario", JSON.stringify(user));
 
-        
-        if (user.role === "ADMIN") {    // redirigimos de ventana dependiendo del rol
-            window.location.href = "admin.html";  
+        // Redirección por rol
+        if (user.rol === "admin") {
+            window.location.href = "../tpi_turnos_medicos/admin.html";
         } else {
-            window.location.href = "usuario.html";
+            window.location.href = "../tpi_turnos_medicos/user.html";
         }
 
     } catch (error) {
@@ -107,5 +106,3 @@ formLogin.addEventListener("submit", async (e) => {
         console.error("Error login:", error);
     }
 });
-
-

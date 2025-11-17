@@ -434,7 +434,7 @@ function actualizarGrafico(turnos) {
   turnosChart.update();
 }
 
-// ======================== INICIALIZACIÓN ========================
+// inicializar
 async function initAdmin() {
   // iniciar chart
   initChart();
