@@ -9,7 +9,7 @@ const btnLogout = document.getElementById("btnLogout");
 const graficoCanvas = document.getElementById("graficoTurnos");
 const mainContainer = document.querySelector(".main-container");
 
-// Section placeholders for users (se añadirá dinámicamente)
+// Section placeholders for users 
 let usersSectionEl = null;
 
 // Chart.js instancia
@@ -94,7 +94,7 @@ function crearFilaDoctor(doc) {
     if (!confirm(`Eliminar al médico ${doc.nombre}?`)) return;
     try {
       await fetch(`${API_DOCTORS}/${doc.id}`, { method: "DELETE" });
-      await cargarYMostrarDoctores();
+      await cargarYMostrarDoctores(); //recargar la tabla
       showTempMessage(document.querySelector("#medicos .section"), "Doctor eliminado", "red");
     } catch (err) {
       console.error(err);
@@ -211,7 +211,7 @@ function openEditDoctorModal(doc) {
   });
 }
 
-// escape simple para valores en inputs generados por innerHTML
+// funcion para que no se rompa el html si se escriben comillas al editar un medico
 function escapeHtml(str) {
   return str.replaceAll('"', '&quot;').replaceAll("'", '&#39;');
 }
@@ -222,10 +222,10 @@ async function getUsers() {
   return await res.json();
 }
 
-function ensureUsersSection() {
-  if (usersSectionEl) return usersSectionEl;
+function ensureUsersSection() {  //crear la seccion de usuarios solo una vez
+  if (usersSectionEl) return usersSectionEl; //si user ya fe creado sale de la funcion(y no duplicar la seccion en el html)
 
-  // crear sección usuarios y agregar al main después de medicos
+  // si no existe se crea
   usersSectionEl = document.createElement("section");
   usersSectionEl.className = "section";
   usersSectionEl.id = "usuarios";
@@ -244,7 +244,7 @@ function ensureUsersSection() {
   // insertarlo después de la sección medicos
   const medicosSection = document.getElementById("medicos");
   medicosSection.parentNode.insertBefore(usersSectionEl, medicosSection.nextSibling);
-  return usersSectionEl;
+  return usersSectionEl; //lo guarda en la variable global
 }
 
 function crearFilaUsuario(u) {
@@ -362,16 +362,16 @@ function crearFilaTurno(turno, usersCache = {}, doctorsCache = {}) {
 
 async function updateAppointmentEstado(id, nuevoEstado) {
   try {
-    // Obtener turno actual (por si MockAPI requiere todo el objeto)
+    // Obtener turno actual 
     const res = await fetch(`${API_APPOINTMENTS}/${id}`);
     const turno = await res.json();
-    const actualizado = { ...turno, estado: nuevoEstado };
+    const actualizado = { ...turno, estado: nuevoEstado }; //creamos el nuevo objeto actualizado
     await fetch(`${API_APPOINTMENTS}/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(actualizado)
     });
-    await cargarYMostrarTurnos();
+    await cargarYMostrarTurnos(); //recargamos 
     showTempMessage(document.querySelector("#turnos .section"), `Turno ${nuevoEstado}`, "green");
   } catch (err) {
     console.error(err);
@@ -381,7 +381,7 @@ async function updateAppointmentEstado(id, nuevoEstado) {
 
 async function cargarYMostrarTurnos() {
   try {
-    const [turnos, usuarios, doctores] = await Promise.all([getAppointments(), getUsers(), getDoctors()]);
+    const [turnos, usuarios, doctores] = await Promise.all([getAppointments(), getUsers(), getDoctors()]); //llama a las 3 apis al mismo tiempo
     // crear caches por id para mostrar nombres
     const usersCache = {};
     usuarios.forEach(u => usersCache[u.id] = u);
@@ -389,17 +389,17 @@ async function cargarYMostrarTurnos() {
     doctores.forEach(d => doctorsCache[d.id] = d);
 
     tablaTurnosTbody.innerHTML = "";
-    turnos.forEach(t => tablaTurnosTbody.appendChild(crearFilaTurno(t, usersCache, doctorsCache)));
+    turnos.forEach(t => tablaTurnosTbody.appendChild(crearFilaTurno(t, usersCache, doctorsCache))); //creamos cada fila
     actualizarGrafico(turnos);
   } catch (err) {
     console.error("Error cargando turnos", err);
   }
 }
 
-// ======================== DASHBOARD (Chart.js) ========================
+//  DASHBOARD (Chart.js) 
 function initChart() {
-  if (!graficoCanvas) return;
-  const ctx = graficoCanvas.getContext("2d");
+  if (!graficoCanvas) return; //verificar si existe el canvas
+  const ctx = graficoCanvas.getContext("2d"); 
   turnosChart = new Chart(ctx, {
     type: "bar",
     data: {
@@ -418,9 +418,9 @@ function initChart() {
 }
 
 function actualizarGrafico(turnos) {
-  if (!turnosChart) return;
-  const estados = { pendiente: 0, confirmado: 0, cancelado: 0, completado: 0 };
-  turnos.forEach(t => {
+  if (!turnosChart) return; // verificar si existe el grafico
+  const estados = { pendiente: 0, confirmado: 0, cancelado: 0, completado: 0 }; //contador para cada estado
+  turnos.forEach(t => { //recorremos los turnos 
     const e = (t.estado || "").toLowerCase();
     if (e in estados) estados[e] += 1;
     else estados["pendiente"] += 0; // ignora otros estados
@@ -431,7 +431,7 @@ function actualizarGrafico(turnos) {
     estados.cancelado,
     estados.completado
   ];
-  turnosChart.update();
+  turnosChart.update(); //recarga y dibuja el grafico
 }
 
 // inicializar
@@ -445,4 +445,4 @@ async function initAdmin() {
   await cargarYMostrarTurnos();
 }
 
-initAdmin().catch(err => console.error("Error init admin", err));
+initAdmin().catch(err => console.error("Error init admin", err)); 
