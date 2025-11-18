@@ -160,8 +160,6 @@ body {
   border-bottom: 1px solid #ddd;
 }
 
-
-
 /*  Botones de accion  */
 .btn-accion {
   padding: 5px 10px;
@@ -207,8 +205,6 @@ body {
   width: 100% !important;
   height: 100% !important;
 }
-  
-  /* Logo en la navbar */
 .logo-container {
   display: flex;
   align-items: center;
@@ -216,16 +212,17 @@ body {
 }
 
 .logo-img {
-  width: 30px;     /* tamaño del logo */
+  width: 75px;
   height: auto;
 }
 
 .logo-text {
-  font-size: 24px;
-  font-weight: bold;
+  color: white;
+  font-size: 1.5em;
   margin: 0;
-  color: white;    /* si tu navbar es oscura */
+  font-weight: bold;
 }
+
 
 @media (max-width: 768px) {
 
