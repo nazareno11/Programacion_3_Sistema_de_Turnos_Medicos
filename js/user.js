@@ -376,7 +376,7 @@ async function renderSolicitarTurnoForm() {
 function cerrarSesion() {
   localStorage.removeItem("usuario");
   localStorage.removeItem("usuarioLogueado");
-  window.location.href = "../index.html";
+  window.location.href = "../tpi_turnos_medicos/index.html";
 }
 
 // ======================= INICIALIZACIÓN =======================
@@ -412,3 +412,19 @@ function initUserPanel() {
 
 // arrancar
 initUserPanel();
+
+// funciones mostrar/ocultar
+function cerrarSesion() {
+    localStorage.removeItem("usuarioLogueado");
+    window.location.href = "index.html";
+}
+
+function mostrar(id) {
+    document.querySelectorAll(".card").forEach(s => s.style.display = "none");
+    document.getElementById(id).style.display = "block";
+}
+
+function volverMenu() {
+    document.querySelectorAll(".card").forEach(s => s.style.display = "none");
+    document.getElementById("menuPrincipal").style.display = "block";
+}
