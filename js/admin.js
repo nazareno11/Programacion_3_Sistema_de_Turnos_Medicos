@@ -56,7 +56,7 @@ btnLogout.addEventListener("click", () => {
   window.location.href = "../tpi_turnos_medicos/index.html";
 });
 
-// docs CRUD
+// Doctores CRUD
 async function getDoctors() {
   const res = await fetch(API_DOCTORS);
   return await res.json();

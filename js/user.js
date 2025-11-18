@@ -1,11 +1,7 @@
-// user.js
-
-// ======================= CONFIG ENDPOINTS =======================
 const API_DOCTORS = "https://6911d53152a60f10c81f73ab.mockapi.io/doctores";
 const API_USERS = "https://6911d53152a60f10c81f73ab.mockapi.io/usuarios";
 const API_APPOINTMENTS = "https://690b3d176ad3beba00f40db9.mockapi.io/api/appointments";
 
-// ======================= SELECTORES / SECCIONES =======================
 const perfilSection = document.getElementById("perfil");
 const turnosDisponiblesSection = document.getElementById("turnosDisponibles");
 const solicitarTurnoSection = document.getElementById("solicitarTurno");
@@ -49,7 +45,7 @@ if (!currentUser) {
   throw new Error("No hay usuario válido en sesión.");
 }
 
-// ======================= UTILIDADES =======================
+//  UTILIDADES 
 function showSection(id) {
   document.querySelectorAll(".card").forEach(s => s.style.display = "none");
   const el = document.getElementById(id);
@@ -81,7 +77,7 @@ function todayYYYYMMDD() {
   return `${y}-${m}-${day}`;
 }
 
-// ======================= PERFIL =======================
+//  PERFIL 
 function renderPerfil() {
   perfilSection.innerHTML = ""; // limpiar
   perfilContainer = document.createElement("div");
@@ -108,7 +104,7 @@ function renderPerfil() {
   perfilSection.appendChild(perfilContainer);
 }
 
-// ======================= TURNOS DEL USUARIO =======================
+//  TURNOS DEL USUARIO 
 async function fetchAppointments() {
   const res = await fetch(API_APPOINTMENTS);
   if (!res.ok) throw new Error("Error al obtener turnos");
@@ -223,7 +219,7 @@ async function renderTurnosUsuario() {
   }
 }
 
-// ======================= SOLICITAR TURNO (formulario simple) =======================
+//  SOLICITAR TURNO (formulario simple) 
 async function renderSolicitarTurnoForm() {
   solicitarTurnoSection.innerHTML = ""; // limpiar
   solicitarFormContainer = document.createElement("div");
@@ -373,14 +369,14 @@ async function renderSolicitarTurnoForm() {
   });
 }
 
-// ======================= CERRAR SESIÓN =======================
+//  CERRAR SESIÓN 
 function cerrarSesion() {
   localStorage.removeItem("usuario");
   localStorage.removeItem("usuarioLogueado");
   window.location.href = "../tpi_turnos_medicos/index.html";
 }
 
-// ======================= INICIALIZACIÓN =======================
+//  INICIALIZACIÓN 
 function initUserPanel() {
   // Render perfil básico
   renderPerfil();

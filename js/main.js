@@ -1,4 +1,3 @@
-// Selección de elementos
 const formLogin = document.getElementById("formLogin");
 const formRegistro = document.getElementById("formRegistro");
 const linkRegistro = document.getElementById("linkRegistro");
@@ -9,8 +8,7 @@ const mensaje = document.getElementById("mensaje");
 // URL MockAPI usuarios
 const API_USERS = "https://6911d53152a60f10c81f73ab.mockapi.io/usuarios";
 
-// ---------------------- CAMBIO DE FORMULARIO ----------------------
-
+// CAMBIO DE FORMULARIO 
 linkRegistro.addEventListener("click", (e) => {
     e.preventDefault();
     formLogin.classList.add("oculto");
@@ -27,8 +25,7 @@ linkLogin.addEventListener("click", (e) => {
     mensaje.textContent = "";
 });
 
-// ---------------------- REGISTRO ----------------------
-
+// REGISTRO 
 formRegistro.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -47,7 +44,7 @@ formRegistro.addEventListener("submit", async (e) => {
             nombre,
             mail,
             password: pass1,
-            rol: "usuario" // → igual al de la API
+            rol: "usuario" 
         };
 
         await fetch(API_USERS, {
@@ -70,8 +67,7 @@ formRegistro.addEventListener("submit", async (e) => {
     }
 });
 
-// ---------------------- LOGIN ----------------------
-
+// LOGIN 
 formLogin.addEventListener("submit", async (e) => {
     e.preventDefault();
 
