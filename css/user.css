@@ -1,6 +1,4 @@
-/* ---------------------------
-    Estilo general
----------------------------- */
+/* ---------------------------Estilo general---------------------------- */
 body {
     font-family: "Poppins", sans-serif;
     background: linear-gradient(135deg, #4a90e2, #50c9c3);
@@ -9,9 +7,7 @@ body {
     color: #333;
 }
 
-/* ---------------------------
-    Header
----------------------------- */
+/* ---------------------------Header---------------------------- */
 .header {
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(8px);
@@ -47,9 +43,7 @@ body {
     transform: scale(0.97);
 }
 
-/* ---------------------------
-    Contenedor principal
----------------------------- */
+/* ---------------------------Contenedor principal---------------------------- */
 .container {
     padding: 40px 10%;
     display: flex;
@@ -57,9 +51,7 @@ body {
     gap: 40px;
 }
 
-/* ---------------------------
-    Tarjetas de opciones
----------------------------- */
+/* ---------------------------Tarjetas de opciones---------------------------- */
 .card {
     background-color: #ffffffdd;
     backdrop-filter: blur(6px);
@@ -102,9 +94,7 @@ body {
     transform: scale(0.98);
 }
 
-/* ---------------------------
-    Responsive
----------------------------- */
+/* --------------------------- Responsive Panel Principal---------------------------- */
 @media (max-width: 768px) {
     .container {
     padding: 20px;
@@ -115,10 +105,237 @@ body {
     gap: 10px;
     }
 
+    #menuPrincipal button {
+        width: 100%;
+        max-width: 350px;
+        margin: 10px auto;
+    }
+
     .header h1 {
     text-align: center;
     }
 }
 .seccion-oculta {
     display: none;
+}
+
+/* ---------- WRAPPER GENERAL ---------- */
+.turnos-wrapper {
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.turnos-wrapper h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: #333;
+}
+
+/* ---------- TABLA DE TURNOS ---------- */
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.tabla thead {
+    background: #3498db;
+    color: #fff;
+}
+
+.tabla th, .tabla td {
+    padding: 14px;
+    text-align: center;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.tabla tr:nth-child(even) {
+    background: #f7f7f7;
+}
+
+.tabla tbody tr:hover {
+    background: #eaf5ff;
+}
+
+/* ---------- BOTONES ---------- */
+.btn-accion {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.btn-cancelar {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.btn-cancelar:hover:not(:disabled) {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+
+.btn-cancelar:disabled {
+    background: #bbb;
+    cursor: not-allowed;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 700px) {
+
+.tabla thead {
+        display: none; 
+    }
+
+    .tabla tr {
+        display: block;
+        background: #fff;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        padding: 10px;
+    }
+
+    .tabla td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 5px;
+        border: none;
+        border-bottom: 1px dashed #ddd;
+    }
+
+    .tabla td:last-child {
+        border-bottom: none;
+    }
+
+    .tabla td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #555;
+    }
+}
+
+/* ===== CONTENEDOR GENERAL ===== */
+.solicitar-container {
+    background: #ffffffdd;
+    backdrop-filter: blur(6px);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    max-width: 600px;
+    margin: 30px auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.solicitar-container h2 {
+    text-align: center;
+    color: #4a90e2;
+    font-size: 1.6em;
+    margin: 0 0 10px 0;
+}
+
+/* ===== FORMULARIO ===== */
+#formSolicitarTurno {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#formSolicitarTurno label {
+    font-weight: 600;
+    color: #333;
+}
+
+#formSolicitarTurno select,
+#formSolicitarTurno input[type="date"],
+#formSolicitarTurno input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#formSolicitarTurno select:focus,
+#formSolicitarTurno input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 6px #4a90e2;
+}
+
+/* ===== BOTON SOLICITAR TURNO ===== */
+#formSolicitarTurno .btn {
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background 0.3s, transform 0.1s;
+}
+
+#formSolicitarTurno .btn:hover {
+    background-color: #357ABD;
+}
+
+#formSolicitarTurno .btn:active {
+    transform: scale(0.97);
+}
+
+/* ===== BOTON VOLVER ===== */
+.solicitar-container button {
+    align-self: center;
+    background-color: #ddd;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.solicitar-container button:hover {
+    background-color: #cfcfcf;
+}
+
+.solicitar-container button:active {
+    transform: scale(0.97);
+}
+
+.btn-volver {
+    background-color: #4a90e2 !important;
+    color: white !important;
+}
+
+/* ===== FEEDBACK ===== */
+#feedbackSolicitar {
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+    .solicitar-container {
+    padding: 18px;
+    } 
+
+    #formSolicitarTurno .btn {
+    padding: 10px;
+    }
 }

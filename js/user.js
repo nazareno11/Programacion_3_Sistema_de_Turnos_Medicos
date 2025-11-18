@@ -11,7 +11,7 @@ const turnosDisponiblesSection = document.getElementById("turnosDisponibles");
 const solicitarTurnoSection = document.getElementById("solicitarTurno");
 const menuPrincipal = document.getElementById("menuPrincipal");
 
-// Contenedores dinámicos que agregaremos
+// Contenedores dinamicos que agregaremos
 let perfilContainer;
 let turnosTableContainer;
 let solicitarFormContainer;
@@ -132,7 +132,7 @@ function buildTurnosTable(turnos, doctorsMap) {
   const table = document.createElement("table");
   table.className = "tabla";
   table.innerHTML = `
-    <thead>
+    <thead id="tabla-mis-turnos">
       <tr><th>Médico</th><th>Fecha</th><th>Hora</th><th>Estado</th><th>Acciones</th></tr>
     </thead>
   `;
@@ -293,6 +293,7 @@ async function renderSolicitarTurnoForm() {
 
   const btnVolver = document.createElement("button");
   btnVolver.textContent = "Volver";
+  btnVolver.className = "btn btn-volver";
   btnVolver.style.marginTop = "12px";
   btnVolver.addEventListener("click", volverMenu);
   solicitarFormContainer.appendChild(btnVolver);
