@@ -403,11 +403,11 @@ function initChart() {
   turnosChart = new Chart(ctx, {
     type: "bar",
     data: {
-      labels: ["pendiente", "confirmado", "cancelado", "completado"],
+      labels: ["pendiente", "confirmado", "cancelado"],
       datasets: [{
         label: "Turnos",
         data: [0, 0, 0, 0],
-        backgroundColor: ["#f1c40f", "#2ecc71", "#e74c3c", "#3498db"]
+        backgroundColor: ["#f1c40f", "#2ecc71", "#e74c3c"]
       }]
     },
     options: {
