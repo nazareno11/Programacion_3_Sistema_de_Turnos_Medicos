@@ -102,3 +102,10 @@ body {
 .oculto {
     display: none;
 }
+
+#logoClinica {
+    width: 200px;          /* tamaño del logo */
+    display: block;
+    margin: 10px auto 20px; /* centrado con espacio arriba/abajo */
+}
+
