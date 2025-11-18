@@ -1,13 +1,35 @@
 /* Fuente y fondo general */
 body {
     font-family: "Poppins", sans-serif;
-    background: linear-gradient(135deg, #4a90e2, #50c9c3);
+
+    /* Imagen de fondo */
+    background-image: url('../img/fondo-login.jpg'); 
+    background-size: cover;    
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* capa oscura transparente encima de la imagen */
+    position: relative;
+    margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
 }
+
+/* transparencia */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(3px);
+    z-index: -1;                    
+}
+
 
 /* Contenedor principal */
 .login-container {
@@ -106,6 +128,6 @@ body {
 #logoClinica {
     width: 200px;          /* tamaño del logo */
     display: block;
-    margin: 10px auto 20px; /* centrado con espacio arriba/abajo */
+    margin: 10px auto 20px; 
 }
 
