@@ -208,22 +208,6 @@ body {
   height: 100% !important;
 }
   
-
-/*  Responsive  */
-@media (max-width: 768px) {
-  .form-row {
-    flex: 1 1 100%;
-  }
-
-  .menu ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .main-container {
-    padding: 20px;
-  }
-
   /* Logo en la navbar */
 .logo-container {
   display: flex;
@@ -243,6 +227,47 @@ body {
   color: white;    /* si tu navbar es oscura */
 }
 
+@media (max-width: 768px) {
+
+  /* NAVBAR RESPONSIVE */
+  .navbar .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .btn-logout {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* LOGO */
+  .logo-text {
+    font-size: 20px;
+  }
+
+  /* SECCIONES */
+  .main-container {
+    padding: 15px;
+    gap: 40px;
+  }
+
+  /* TABLAS RESPONSIVE */
+  .tabla {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .grafico-container {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 
