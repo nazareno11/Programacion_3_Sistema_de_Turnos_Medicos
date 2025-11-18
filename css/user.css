@@ -43,6 +43,27 @@ body {
     transform: scale(0.97);
 }
 
+/* LOGO */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    width: 75px;   /* Ajustá el tamaño que quieras */
+    height: auto;
+}
+
+.logo-text {
+    color: white;
+    font-size: 1.6em;
+    margin: 0;
+    font-weight: bold;
+}
+
+
+
 /* ---------------------------Contenedor principal---------------------------- */
 .container {
     padding: 40px 10%;
