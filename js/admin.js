@@ -223,7 +223,7 @@ async function getUsers() {
 }
 
 function ensureUsersSection() {  //crear la seccion de usuarios solo una vez
-  if (usersSectionEl) return usersSectionEl; //si user ya fe creado sale de la funcion(y no duplicar la seccion en el html)
+  if (usersSectionEl) return usersSectionEl; //si seccionuser ya fe creado sale de la funcion(y no duplicar la seccion en el html)
 
   // si no existe se crea
   usersSectionEl = document.createElement("section");
