@@ -113,7 +113,7 @@ async function fetchAppointments() {
 
 async function fetchDoctors() {
   const res = await fetch(API_DOCTORS);
-  if (!res.ok) throw new Error("Error al obtener doctores");
+  if (!res.ok) throw new Error("Error al obtener doctores");  
   return await res.json();
 }
 
