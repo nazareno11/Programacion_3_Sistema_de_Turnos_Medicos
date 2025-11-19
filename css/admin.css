@@ -13,7 +13,7 @@ body {
   backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
-  justify-content: space-between; /* separa el menú de Cerrar Sesión */
+  justify-content: space-between; 
   padding: 10px 20px;
 }
 

@@ -1,4 +1,3 @@
-/* ---------------------------Estilo general---------------------------- */
 body {
     font-family: "Poppins", sans-serif;
     background: linear-gradient(135deg, #4a90e2, #50c9c3);
@@ -7,7 +6,7 @@ body {
     color: #333;
 }
 
-/* ---------------------------Header---------------------------- */
+/* Header */
 .header {
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(8px);
@@ -64,7 +63,7 @@ body {
 
 
 
-/* ---------------------------Contenedor principal---------------------------- */
+/* Contenedor principal */
 .container {
     padding: 40px 10%;
     display: flex;
@@ -72,7 +71,7 @@ body {
     gap: 40px;
 }
 
-/* ---------------------------Tarjetas de opciones---------------------------- */
+/* Tarjetas de opciones */
 .card {
     background-color: #ffffffdd;
     backdrop-filter: blur(6px);
@@ -115,7 +114,7 @@ body {
     transform: scale(0.98);
 }
 
-/* --------------------------- Responsive Panel Principal---------------------------- */
+/*  Responsive Panel Principal */
 @media (max-width: 768px) {
     .container {
     padding: 20px;
@@ -140,7 +139,7 @@ body {
     display: none;
 }
 
-/* ---------- WRAPPER GENERAL ---------- */
+/*  WRAPPER GENERAL  */
 .turnos-wrapper {
     padding: 20px;
     background: #fff;
@@ -157,7 +156,7 @@ body {
     color: #333;
 }
 
-/* ---------- TABLA DE TURNOS ---------- */
+/*  TABLA DE TURNOS  */
 .tabla {
     width: 100%;
     border-collapse: collapse;
@@ -185,7 +184,7 @@ body {
     background: #eaf5ff;
 }
 
-/* ---------- BOTONES ---------- */
+/*  BOTONES  */
 .btn-accion {
     padding: 8px 14px;
     border: none;
@@ -210,7 +209,7 @@ body {
     cursor: not-allowed;
 }
 
-/* ---------- RESPONSIVE ---------- */
+/*  RESPONSIVE  */
 @media (max-width: 700px) {
 
 .tabla thead {
@@ -245,7 +244,7 @@ body {
     }
 }
 
-/* ===== CONTENEDOR GENERAL ===== */
+/*  CONTENEDOR GENERAL  */
 .solicitar-container {
     background: #ffffffdd;
     backdrop-filter: blur(6px);
@@ -268,7 +267,7 @@ body {
     margin: 0 0 10px 0;
 }
 
-/* ===== FORMULARIO ===== */
+/*  FORMULARIO  */
 #formSolicitarTurno {
     display: flex;
     flex-direction: column;
@@ -298,7 +297,7 @@ body {
     box-shadow: 0 0 6px #4a90e2;
 }
 
-/* ===== BOTON SOLICITAR TURNO ===== */
+/*  BOTON SOLICITAR TURNO  */
 #formSolicitarTurno .btn {
     background-color: #4a90e2;
     color: #fff;
@@ -319,7 +318,7 @@ body {
     transform: scale(0.97);
 }
 
-/* ===== BOTON VOLVER ===== */
+/*  BOTON VOLVER  */
 .solicitar-container button {
     align-self: center;
     background-color: #ddd;
@@ -344,13 +343,13 @@ body {
     color: white !important;
 }
 
-/* ===== FEEDBACK ===== */
+/*  FEEDBACK  */
 #feedbackSolicitar {
     font-weight: 600;
     text-align: center;
 }
 
-/* ===== RESPONSIVE ===== */
+/*  RESPONSIVE  */
 @media (max-width: 480px) {
     .solicitar-container {
     padding: 18px;

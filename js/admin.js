@@ -98,7 +98,7 @@ function crearFilaDoctor(doc) {
       showTempMessage(document.querySelector("#medicos .section"), "Doctor eliminado", "red");
     } catch (err) {
       console.error(err);
-      alert("Error eliminando doctor");
+      console.log("Error eliminando doctor");
     }
   });
   tdAcc.appendChild(btnEliminar);
@@ -139,7 +139,7 @@ formMedico.addEventListener("submit", async (e) => {
     showTempMessage(document.querySelector("#medicos .section"), "Doctor agregado", "green");
   } catch (err) {
     console.error(err);
-    alert("Error al agregar doctor");
+    console.log("Error al agregar doctor");
   }
 });
 
@@ -148,7 +148,7 @@ async function cargarYMostrarDoctores() {
     const docs = await getDoctors();
     await mostrarDoctores(docs);
   } catch (err) {
-    console.error("Error cargando doctores", err);
+    console.log("Error cargando doctores", err);
   }
 }
 
@@ -206,7 +206,7 @@ function openEditDoctorModal(doc) {
       showTempMessage(document.querySelector("#medicos .section"), "Doctor editado", "green");
     } catch (err) {
       console.error(err);
-      alert("Error al editar");
+      console.log("Error al editar");
     }
   });
 }
@@ -223,7 +223,7 @@ async function getUsers() {
 }
 
 function ensureUsersSection() {  //crear la seccion de usuarios solo una vez
-  if (usersSectionEl) return usersSectionEl; //si user ya fe creado sale de la funcion(y no duplicar la seccion en el html)
+  if (usersSectionEl) return usersSectionEl; //si seccionuser ya fe creado sale de la funcion(y no duplicar la seccion en el html)
 
   // si no existe se crea
   usersSectionEl = document.createElement("section");
@@ -267,7 +267,7 @@ function crearFilaUsuario(u) {
       showTempMessage(usersSectionEl, "Usuario eliminado", "red");
     } catch (err) {
       console.error(err);
-      alert("Error eliminando usuario");
+      console.log("Error eliminando usuario");
     }
   });
 
@@ -284,7 +284,7 @@ async function cargarYMostrarUsuarios() {
     tbody.innerHTML = "";
     usuarios.forEach(u => tbody.appendChild(crearFilaUsuario(u)));
   } catch (err) {
-    console.error("Error cargando usuarios", err);
+    console.log("Error cargando usuarios", err);
   }
 }
 
@@ -351,7 +351,7 @@ function crearFilaTurno(turno, usersCache = {}, doctorsCache = {}) {
       showTempMessage(document.querySelector("#turnos .section"), "Turno eliminado", "red");
     } catch (err) {
       console.error(err);
-      alert("Error eliminando turno");
+      console.log("Error eliminando turno");
     }
   });
   accionesTd.appendChild(btnDel);
@@ -375,7 +375,7 @@ async function updateAppointmentEstado(id, nuevoEstado) {
     showTempMessage(document.querySelector("#turnos .section"), `Turno ${nuevoEstado}`, "green");
   } catch (err) {
     console.error(err);
-    alert("Error actualizando estado");
+    console.log("Error actualizando estado");
   }
 }
 
@@ -392,7 +392,7 @@ async function cargarYMostrarTurnos() {
     turnos.forEach(t => tablaTurnosTbody.appendChild(crearFilaTurno(t, usersCache, doctorsCache))); //creamos cada fila
     actualizarGrafico(turnos);
   } catch (err) {
-    console.error("Error cargando turnos", err);
+    console.log("Error cargando turnos", err);
   }
 }
 
